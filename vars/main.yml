@@ -1,0 +1,3 @@
+rkhunter_packages:
+  - rkhunter
+  - libselinux-python
