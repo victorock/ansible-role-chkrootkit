@@ -1,0 +1,5 @@
+- name: "Uninstall rkhunter"
+  yum:
+    name: "{{ rkhunter_packages }}"
+    update_cache: yes
+    state: absent
