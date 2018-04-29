@@ -9,7 +9,6 @@ This role install, configure and run rkhunter.
 Defaults
 ------------
 
-Ensure that rkhunter is enabled to run daily
 ```YAML
 rkhunter_cron: yes
 rkhunter_config: yes
