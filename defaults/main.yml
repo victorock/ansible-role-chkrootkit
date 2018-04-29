@@ -3,3 +3,4 @@ rkhunter_config: yes
 rkhunter_cron: yes
 rkhunter_logrotate: yes
 rkhunter_run: yes
+rkhunter_state: present

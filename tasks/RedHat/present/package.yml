@@ -1,0 +1,5 @@
+- name: "Install rkhunter"
+  yum:
+    name: "{{ rkhunter_packages }}"
+    update_cache: yes
+    state: latest

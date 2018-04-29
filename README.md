@@ -14,6 +14,7 @@ rkhunter_cron: yes
 rkhunter_config: yes
 rkhunter_logrotate: yes
 rkhunter_run: yes
+rkhunter_state: present
 ```
 
 Example

@@ -1,57 +1,15 @@
 ---
-- name: "Install rkhunter"
-  yum:
-    name: "{{ rkhunter_packages }}"
-    state: latest
+- name: "Gather facts"
+  setup:
+  when: ansible_os_family is not defined
 
-#-rw-r-----. root root system_u:object_r:etc_t:s0       /etc/rkhunter.conf
-- name: "Ensure state of configuration file: [ /etc/rkhunter.conf ]"
-  copy:
-    src: etc/rkhunter.conf
-    dest: /etc/rkhunter.conf
-    owner: root
-    group: root
-    mode: 0640
-    seuser: system_u
-    serole: object_r
-    setype: etc_t
-    selevel: s0
-    backup: yes
-    state: present
-  when: rkhunter_config|bool
+- block:
+    - name: "Including tasks for: [ {{ ansible_os_family }} ]"
+      include_tasks: "{{ ansible_os_family }}/main.yml"
 
-#-rwxr-xr-x. root root system_u:object_r:bin_t:s0       /etc/cron.daily/rkhunter
-- name: "Ensure state of configuration file: [ /etc/cron.daily/rkhunter ]"
-  copy:
-    src: etc/cron.daily/rkhunter
-    dest: /etc/rkhunter.conf
-    owner: root
-    group: root
-    mode: 0755
-    seuser: system_u
-    serole: object_r
-    setype: bin_t
-    selevel: s0
-    backup: yes
-    state: present
-  when: rkhunter_cron|bool
-
-#-rw-r--r--. root root system_u:object_r:etc_t:s0       /etc/logrotate.d/rkhunter
-- name: "Ensure state of configuration file: [ /etc/logrotate.d/rkhunter ]"
-  copy:
-    src: etc/logrotate.d/rkhunter
-    dest: /etc/logrotate.d/rkhunter
-    owner: root
-    group: root
-    mode: 0755
-    seuser: system_u
-    serole: object_r
-    setype: etc_t
-    selevel: s0
-    backup: yes
-    state: present
-  when: rkhunter_logrotate|bool
-
-- name: "Run rkhunter --check --pkgmgr RPM --sk"
-  shell: rkhunter --check --pkgmgr RPM --sk
-  when: rkhunter_run|bool
+  rescue:
+    - name: "/!\\ Something went wrong /!\\"
+      debug:
+      msg: |
+        {{ ansible_os_family }} not supported or bug?
+          Send me your PR: https://github.com/victorock/ansible-role-rkhunter
