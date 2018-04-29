@@ -1,4 +1,4 @@
-- name: "Install rkhunter"
+- name: "Install rkhunter packages"
   yum:
     name: "{{ rkhunter_packages }}"
     update_cache: yes
