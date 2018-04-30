@@ -4,7 +4,6 @@
     src: etc/logrotate.d/rkhunter
     dest: /etc/logrotate.d/rkhunter
     backup: yes
-    state: present
 
 #-rw-r--r--. root root system_u:object_r:etc_t:s0       /etc/logrotate.d/rkhunter
 - name: "Ensure state of configuration file: [ /etc/logrotate.d/rkhunter ]"

@@ -4,7 +4,6 @@
     src: etc/rkhunter.conf
     dest: /etc/rkhunter.conf
     backup: yes
-    state: present
 
 #-rw-r-----. root root system_u:object_r:etc_t:s0       /etc/rkhunter.conf
 - name: "Ensure permissions of file: [ /etc/rkhunter.conf ]"

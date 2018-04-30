@@ -4,7 +4,6 @@
     src: etc/cron.daily/rkhunter
     dest: /etc/cron.daily/rkhunter
     backup: yes
-    state: present
 
 #-rwxr-xr-x. root root system_u:object_r:bin_t:s0       /etc/cron.daily/rkhunter
 - name: "Ensure state of configuration file: [ /etc/cron.daily/rkhunter ]"
