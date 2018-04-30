@@ -1,1 +1,13 @@
 - import_tasks: "package.yml"
+
+- import_tasks: "config.yml"
+  when: rkhunter_config|bool
+
+- import_tasks: "cron.yml"
+  when: rkhunter_cron|bool
+
+- import_tasks: "logrotate.yml"
+  when: rkhunter_logrotate|bool
+
+- import_tasks: "run.yml"
+  when: rkhunter_run|bool

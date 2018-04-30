@@ -1,0 +1,5 @@
+---
+- name: "Delete file: [ /etc/cron.daily/rkhunter ]"
+  file:
+    path: /etc/cron.daily/rkhunter
+    state: absent
