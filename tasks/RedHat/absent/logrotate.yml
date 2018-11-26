@@ -1,5 +1,0 @@
----
-- name: "Delete file: [ /etc/logrotate.d/rkhunter ]"
-  file:
-    path: /etc/logrotate.d/rkhunter
-    state: absent

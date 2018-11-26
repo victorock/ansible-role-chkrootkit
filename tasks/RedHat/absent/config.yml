@@ -1,5 +1,0 @@
----
-- name: "Delete file: [ /etc/rkhunter.conf ]"
-  file:
-    path: /etc/rkhunter.conf
-    state: absent

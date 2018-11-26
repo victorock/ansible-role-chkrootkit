@@ -1,2 +1,3 @@
-- name: "Run rkhunter --check --pkgmgr RPM --sk"
-  shell: rkhunter --check --pkgmgr RPM --sk
+- name: "Run rkhunter --check --sk --nocolors --novl --rwo --ns --propupd"
+  shell: rkhunter --check --sk --nocolors --novl --rwo --ns --propupd
+

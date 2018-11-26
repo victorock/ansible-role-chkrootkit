@@ -1,2 +1,0 @@
-- name: "Run rkhunter --check --pkgmgr RPM --sk"
-  shell: rkhunter --check --pkgmgr RPM --sk

@@ -1,2 +1,0 @@
-- include_vars: "vars/RedHat.yml"
-- import_tasks: "{{ rkhunter_state }}/main.yml"
