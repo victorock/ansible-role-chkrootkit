@@ -1,0 +1,19 @@
+---
+- name: "Copy configuration file: [ /etc/cron.daily/rkhunter ]"
+  copy:
+    src: etc/cron.daily/rkhunter
+    dest: /etc/cron.daily/rkhunter
+    backup: yes
+
+#-rwxr-xr-x. root root system_u:object_r:bin_t:s0       /etc/cron.daily/rkhunter
+- name: "Ensure state of configuration file: [ /etc/cron.daily/rkhunter ]"
+  file:
+    path: /etc/cron.daily/rkhunter
+    owner: root
+    group: root
+    mode: 0755
+    seuser: system_u
+    serole: object_r
+    setype: bin_t
+    selevel: s0
+    state: file

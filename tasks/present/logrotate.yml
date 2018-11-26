@@ -1,0 +1,19 @@
+---
+- name: "Copy configuration file: [ /etc/logrotate.d/rkhunter ]"
+  copy:
+    src: etc/logrotate.d/rkhunter
+    dest: /etc/logrotate.d/rkhunter
+    backup: yes
+
+#-rw-r--r--. root root system_u:object_r:etc_t:s0       /etc/logrotate.d/rkhunter
+- name: "Ensure state of configuration file: [ /etc/logrotate.d/rkhunter ]"
+  file:
+    path: /etc/logrotate.d/rkhunter
+    owner: root
+    group: root
+    mode: 0644
+    seuser: system_u
+    serole: object_r
+    setype: etc_t
+    selevel: s0
+    state: file

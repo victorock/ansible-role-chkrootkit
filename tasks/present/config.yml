@@ -1,0 +1,19 @@
+---
+- name: "Copy configuration file: [ /etc/rkhunter.conf ]"
+  copy:
+    src: etc/rkhunter.conf
+    dest: /etc/rkhunter.conf
+    backup: yes
+
+#-rw-r-----. root root system_u:object_r:etc_t:s0       /etc/rkhunter.conf
+- name: "Ensure permissions of file: [ /etc/rkhunter.conf ]"
+  file:
+    path: /etc/rkhunter.conf
+    owner: root
+    group: root
+    mode: 0640
+    seuser: system_u
+    serole: object_r
+    setype: etc_t
+    selevel: s0
+    state: file
