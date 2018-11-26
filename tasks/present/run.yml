@@ -1,3 +1,12 @@
-- name: "Run rkhunter --check --sk --nocolors --novl --rwo --ns --propupd"
-  shell: rkhunter --check --sk --nocolors --novl --rwo --ns --propupd
+- name: "Run rkhunter"
+  block:
+    - name: "Run rkhunter --check --sk --nocolors --rwo"
+      shell: rkhunter --check --sk --nocolors --rwo
+  rescue:
+    - name: "Help"
+      fail:
+        msg: |
+          If you did perform package updates in the meantime, consider checking if the error is false/positive.
+          In a case where the error is a false/positive, consider running rkhunter with --propupd.
+          This option will update rkhunter's internal database.
 
